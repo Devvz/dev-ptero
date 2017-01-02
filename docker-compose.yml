@@ -5,7 +5,7 @@ services:
         depends_on:
             - php
         container_name: web1
-        hostname: ark-web1
+        hostname: dev-web1
         image: nginx:latest
         ports:
             - "80:80"
@@ -21,7 +21,7 @@ services:
         depends_on:
             - sql
         container_name: php1
-        hostname: ark-php1
+        hostname: dev-php1
         build: dockerfiles/php/
         volumes:
             - ./files/php/conf/pterodactyl-worker.conf:/etc/supervisor/conf.d/pterodactyl-worker.conf
@@ -44,7 +44,7 @@ services:
             - "email_pass="
             - "email_domain="
             - "email_port="
-            - "admin_email=xyelz@hotmail.com"
+            - "admin_email=devvz@hotmail.com"
             - "admin_pass=PteroAdmin1"
             - "admin_stat=1"
         ports:
@@ -53,7 +53,7 @@ services:
             - web-network-01
     sql:
         container_name: sql1
-        hostname: ark-sql1
+        hostname: dev-sql1
         image: mariadb:latest
         command: mysqld
         volumes:
